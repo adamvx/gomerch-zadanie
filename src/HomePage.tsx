@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useRecoilValue } from "recoil";
 import { Container } from "./components/Container";
 import { Header } from "./components/Header";
@@ -10,8 +10,6 @@ type Props = {};
 
 const HomePage: React.FC<Props> = () => {
 	const menuOpen = useRecoilValue(menuOpenState);
-
-	useEffect(() => {}, [menuOpen]);
 
 	return (
 		<Container>
