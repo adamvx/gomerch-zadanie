@@ -1,6 +1,22 @@
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { menuOpenState } from "../recoil/atoms";
 
-export const HeaderS = styled.nav`
+const HeaderComponent: React.FC<{ className?: string }> = ({ className }) => {
+	const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
+
+	const onMenuClick = () => {
+		setMenuOpen(!menuOpen);
+	};
+
+	return (
+		<div className={className}>
+			<button onClick={onMenuClick}>MENU</button>
+		</div>
+	);
+};
+
+export const Header = styled(HeaderComponent)`
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -14,11 +30,3 @@ export const HeaderS = styled.nav`
 	-webkit-box-align: center;
 	align-items: center;
 `;
-
-export const Header: React.FC<{}> = () => {
-	return (
-		<HeaderS>
-			<button>MENU</button>
-		</HeaderS>
-	);
-};
