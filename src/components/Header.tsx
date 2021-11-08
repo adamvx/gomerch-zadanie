@@ -2,7 +2,11 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { menuOpenState } from "../recoil/atoms";
 
-const HeaderComponent: React.FC<{ className?: string }> = ({ className }) => {
+type Props = {
+	className?: string;
+};
+
+const HeaderComponent: React.FC<Props> = ({ className }) => {
 	const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
 
 	const onMenuClick = () => {
